@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <assignments>
+        <name>Set_Opp_Name_From_Account</name>
+        <label>Set Opp Name From Account</label>
+        <locationX>264</locationX>
+        <locationY>575</locationY>
+        <assignmentItems>
+            <assignToReference>Related_Opp_Loop.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>{!$Record.Name} &amp; &quot; - &quot; &amp; {!Related_Opp_Loop.Type}}</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Related_Opp_Loop</targetReference>
+        </connector>
+    </assignments>
+    <environments>Default</environments>
+    <interviewLabel>Update Related Opp Names {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Related Opp Names</label>
+    <loops>
+        <name>Related_Opp_Loop</name>
+        <label>Related Opp Loop</label>
+        <locationX>176</locationX>
+        <locationY>455</locationY>
+        <collectionReference>Get_Related_Opps</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Set_Opp_Name_From_Account</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_related_opps</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_Related_Opps</name>
+        <label>Get Related Opps</label>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Related_Opp_Loop</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Opportunity</object>
+        <sortField>AccountId</sortField>
+        <sortOrder>Asc</sortOrder>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_related_opps</name>
+        <label>Update related opps</label>
+        <locationX>176</locationX>
+        <locationY>791</locationY>
+        <inputReference>Get_Related_Opps</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Related_Opps</targetReference>
+        </connector>
+        <object>Account</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>
