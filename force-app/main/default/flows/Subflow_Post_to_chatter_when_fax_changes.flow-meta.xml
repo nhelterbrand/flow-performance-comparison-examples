@@ -17,7 +17,7 @@
         <inputParameters>
             <name>subjectNameOrId</name>
             <value>
-                <stringValue>AccountRecord.Id</stringValue>
+                <elementReference>AccountRecord.Id</elementReference>
             </value>
         </inputParameters>
         <storeOutputAutomatically>true</storeOutputAutomatically>

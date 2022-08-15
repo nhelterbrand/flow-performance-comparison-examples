@@ -10,7 +10,7 @@
             <assignToReference>Loop_through_Related_Contacts.OtherPhone</assignToReference>
             <operator>Assign</operator>
             <value>
-                <stringValue>AccountRecord.Phone</stringValue>
+                <elementReference>AccountRecord.Phone</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -67,7 +67,7 @@
             <field>AccountId</field>
             <operator>EqualTo</operator>
             <value>
-                <stringValue>AccountRecord.Id</stringValue>
+                <elementReference>AccountRecord.Id</elementReference>
             </value>
         </filters>
         <getFirstRecordOnly>false</getFirstRecordOnly>

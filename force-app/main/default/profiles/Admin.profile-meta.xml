@@ -4,6 +4,26 @@
         <apexClass>AccountTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>BatchGenerateData</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BatchUpdateGeneratedData</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PostChatterMessageToAccountAction</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UpdateRelatedContactPhoneNumbersAction</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UpdateRelatedOpportunityNamesAction</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>false</custom>
     <userLicense>Salesforce</userLicense>
     <userPermissions>

@@ -30,10 +30,10 @@
             <targetReference>Update_Related_Opp_Names</targetReference>
         </connector>
         <object>Account</object>
-        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <recordTriggerType>Update</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <subflows>
         <name>Post_to_chatter_when_fax_changes</name>
         <label>Post to chatter when fax changes</label>

@@ -51,18 +51,10 @@
         <connector>
             <targetReference>post_that_fax_changed</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Fax</field>
-            <operator>IsChanged</operator>
-            <value>
-                <booleanValue>true</booleanValue>
-            </value>
-        </filters>
         <object>Account</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <triggerOrder>1600</triggerOrder>
 </Flow>
